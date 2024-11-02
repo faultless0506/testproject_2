@@ -1,0 +1,9 @@
+@use 'reset';
+@use 'Header';
+@use 'Home';
+
+body, html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5rem;
+}
