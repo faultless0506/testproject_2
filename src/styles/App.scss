@@ -1,6 +1,9 @@
 @use 'reset';
 @use 'Header';
 @use 'Home';
+@use 'swiper/css';
+@use 'swiper/css/navigation';
+@use 'swiper/css/pagination';
 
 body, html {
     font-family: 'Roboto', sans-serif;

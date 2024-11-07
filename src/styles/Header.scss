@@ -50,3 +50,19 @@
   }
 }
 
+@media (max-width: 920px) {
+  .header {
+    height: 80px;
+    justify-content: center;
+    &__nav {
+      display: none;
+    }
+
+    &__button {
+      display: none;
+    }
+    &__logo {
+      max-height: 65px;
+    }
+  }
+}

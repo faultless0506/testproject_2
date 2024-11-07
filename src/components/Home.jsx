@@ -1,5 +1,7 @@
-import React , { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
 import line from '../img/greenline_1.png';
 import berries from '../img/berries.png';
 import item_1 from '../img/item_1.svg';
@@ -7,51 +9,85 @@ import item_2 from '../img/item_2.svg';
 import item_3 from '../img/item_3.svg';
 import item_6 from '../img/item_6.svg';
 import portret from '../img/portret.png';
-
 export default function Home() {
   const [activeItem, setActiveItem] = useState(null);
 
   const handleItemClick = (item) => {
     setActiveItem(item);
   };
-
-
   return (
     <div className="home">
       <div className="home__top">
         <div className="home__background-left"></div>
         <div className="home__body">
+          <img className='home__berry-mobile' src={berries} alt='berries  '/>
           <div className="home__top-title">
             <img className="home__top-title-line" src={line} alt="line" />
             <h1>Lorem ipsum, dolor sit amet consectetur </h1>
           </div>
-          <div className="home__berry">
-            <div className="home__berry-circle item-1">
+            <Swiper
+              spaceBetween={50}
+              slidesPerView={1}
+              modules={[Navigation, Pagination]}
+              navigation={{ clickable: true }}
+              pagination={{ clickable: true }}
+            >
+              <SwiperSlide>
+                <img src={item_1} alt="berries" />
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={item_2} alt="berries" />
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={item_3} alt="berries" />
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={item_2} alt="berries" />
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={item_1} alt="berries" />
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={item_6} alt="berries" />
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              </SwiperSlide>
+            </Swiper>
+          <div className="home__berry-desktop">
+            <div className="home__berry-desktop-circle item-1">
               <img src={item_1} alt="berries" />
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </div>
-            <div className="home__berry-circle item-2">
+            <div className="home__berry-desktop-circle item-2">
               <img src={item_2} alt="berries" />
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </div>
-            <div className="home__berry-circle item-3">
+            <div className="home__berry-desktop-circle item-3">
               <img src={item_3} alt="berries" />
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </div>
-            <div className="home__berry-circle item-4">
+            <div className="home__berry-desktop-circle item-4">
               <img src={item_2} alt="berries" />
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </div>
-            <div className="home__berry-circle item-5">
+            <div className="home__berry-desktop-circle item-5">
               <img src={item_1} alt="berries" />
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </div>
-            <div className="home__berry-circle item-6">
+            <div className="home__berry-desktop-circle item-6">
               <img src={item_6} alt="berries" />
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </div>
 
-            <img className="home__berry-img" src={berries} alt="berries" />
+            <img
+              className="home__berry-desktop-img"
+              src={berries}
+              alt="berries"
+            />
           </div>
         </div>
         <div className="home__background-right"></div>
@@ -111,29 +147,32 @@ export default function Home() {
         <div className="home__bottom-right">
           <img src={line} alt="line" />
           <div className="home__bottom-right-upper">
-
-          <h2 className="home__bottom-right-title">
-            Lorem ipsum, dolor sit adipisicing elit.
-          </h2>
-          <p className="home__bottom-right-subtitle">
-            Porro ab rerum omnis magnam eligendi error nobis dolore?
-          </p>
+            <h2 className="home__bottom-right-title">
+              Lorem ipsum, dolor sit adipisicing elit.
+            </h2>
+            <p className="home__bottom-right-subtitle">
+              Porro ab rerum omnis magnam eligendi error nobis dolore?
+            </p>
           </div>
           <ul className="home__bottom-right-box">
-          {Array(5).fill().map((_, index) => (
-          <li
-            key={index}
-            className={`home__bottom-right-box-item ${activeItem === index ? 'active' : ''}`}
-            onClick={() => handleItemClick(index)}
-          >
-            <h3>Lorem ipsum, dolor sit amet adipisicing elit.</h3>
-            <p>
-              Laboriosam quas, aut consectetur animi autem aliquid
-              consequuntur suscipit exercitationem laborum cupiditate magnam
-              eaque quae delenit
-            </p>
-          </li>
-        ))}
+            {Array(5)
+              .fill()
+              .map((_, index) => (
+                <li
+                  key={index}
+                  className={`home__bottom-right-box-item ${
+                    activeItem === index ? 'active' : ''
+                  }`}
+                  onClick={() => handleItemClick(index)}
+                >
+                  <h3>Lorem ipsum, dolor sit amet adipisicing elit.</h3>
+                  <p>
+                    Laboriosam quas, aut consectetur animi autem aliquid
+                    consequuntur suscipit exercitationem laborum cupiditate
+                    magnam eaque quae delenit
+                  </p>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
